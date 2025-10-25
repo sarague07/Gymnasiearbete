@@ -1,10 +1,11 @@
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Refrences")]
     private CharacterController controller;
-    [SerializeField] private Transform camera;
+    [SerializeField] private Transform MainCamera;
  
 
     [Header("Movement Settings")]
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private void GroundMovement()
     {
         Vector3 move =  new Vector3 (turnInput, 0, moveInput);
-        move = camera.transform.TransformDirection(move);
+        move = MainCamera.transform.TransformDirection(move);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
     if (Mathf.Abs(turnInput) > 0 || Mathf.Abs(moveInput) > 0)
         {
-            Vector3 currentLookDirection = camera.forward;
+            Vector3 currentLookDirection = MainCamera.forward;
             currentLookDirection.y = 0;
 
             Quaternion targetRotation = Quaternion.LookRotation(currentLookDirection);
