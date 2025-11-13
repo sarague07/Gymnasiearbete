@@ -4,9 +4,28 @@ public class Killplane : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Killplane"))
+        TryKillPlayer(other.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        TryKillPlayer(collision.gameObject);
+    }
+
+    private void TryKillPlayer(GameObject obj)
+    {
+        if (obj == null) return;
+
+        var player = obj.GetComponent<Player>() ?? obj.GetComponentInParent<Player>();
+        if (player != null)
         {
-            Destroy(other.gameObject);
+            player.TakeDamage(float.MaxValue);
+            return;
+        }
+
+        if (obj.CompareTag("Player") || obj.CompareTag("player"))
+        {
+            Destroy(obj);
         }
     }
 }

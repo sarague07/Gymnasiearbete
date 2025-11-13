@@ -1,12 +1,12 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Header("Refrences")]
     private CharacterController controller;
     [SerializeField] private Transform MainCamera;
- 
 
     [Header("Movement Settings")]
     [SerializeField] private float walkSpeed = 5f;
@@ -23,9 +23,33 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     private float turnInput;
 
+    [Header("Health")]
+    [Tooltip("Starting and editable health value for the player")]
+    [SerializeField] private float maxHealth = 100f;
+    [Tooltip("Current health (reflects changes at runtime)")]
+    [SerializeField] private float currentHealth = 100f;
+
+    [Header("Scene / Respawn")]
+    [Tooltip("If > 0, the scene will be reloaded after this delay when the player dies")]
+    [SerializeField] private float respawnDelay = 0f;
+
+    
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider == null) return;
+        
+        if (hit.collider.CompareTag("Killplane"))
+        {
+            Die();
+        }
+    }
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        if (currentHealth <= 0f)
+            currentHealth = maxHealth;
     }
 
     private void Update()
@@ -42,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private void GroundMovement()
     {
-        Vector3 move =  new Vector3 (turnInput, 0, moveInput);
+        Vector3 move = new Vector3(turnInput, 0, moveInput);
         move = MainCamera.transform.TransformDirection(move);
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -62,9 +86,9 @@ public class PlayerController : MonoBehaviour
         controller.Move(move * Time.deltaTime);
     }
 
-   private void Turn()
+    private void Turn()
     {
-    if (Mathf.Abs(turnInput) > 0 || Mathf.Abs(moveInput) > 0)
+        if (Mathf.Abs(turnInput) > 0 || Mathf.Abs(moveInput) > 0)
         {
             Vector3 currentLookDirection = MainCamera.forward;
             currentLookDirection.y = 0;
@@ -99,4 +123,51 @@ public class PlayerController : MonoBehaviour
         turnInput = Input.GetAxis("Horizontal");
     }
 
+    public void TakeDamage(float amount)
+    {
+        if (amount <= 0f) return;
+
+        currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+
+        Debug.Log($"Player took {amount} damage. Current health: {currentHealth}/{maxHealth}");
+
+        if (currentHealth <= 0f)
+            Die();
+    }
+
+    public void ApplyDamage(float amount)
+    {
+        TakeDamage(amount);
+    }
+
+    public void Heal(float amount)
+    {
+        if (amount <= 0f) return;
+
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0f, maxHealth);
+        Debug.Log($"Player healed {amount}. Current health: {currentHealth}/{maxHealth}");
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player died. Destroying GameObject.");
+
+        Destroy(gameObject);
+
+        if (respawnDelay <= 0f)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            StartCoroutine(ReloadSceneAfterDelay(respawnDelay));
+        }
+    }
+
+    private IEnumerator ReloadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

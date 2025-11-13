@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=d096fb705d00a124b9b0191f2578c6da&amp;type=3#MainMenuStyle" />
-    <ui:VisualElement style="flex-grow: 1; -unity-background-image-tint-color: rgb(255, 255, 255); background-image: url(&quot;project://database/Assets/Background/background.jpg?fileID=2800000&amp;guid=c99949d7703b72840b883fc592f0c3f7&amp;type=3#background&quot;); background-size: 100% 100%; background-color: rgb(255, 255, 255);">
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Imported%20stuff/Background/background.jpg?fileID=2800000&amp;guid=c99949d7703b72840b883fc592f0c3f7&amp;type=3#background&quot;); display: flex;">
         <ui:Label text="Main Menu" name="Header0" class="Header header" />
         <ui:Button text="Start" name="StartButton" class="button" />
         <ui:Button text="Options" name="OptionsButton" class="button" />

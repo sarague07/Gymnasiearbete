@@ -211,6 +211,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: 1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -222,6 +224,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -233,6 +237,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: 5082991133974614888, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -250,6 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5957508253716339871}
   - component: {fileID: 2599443832489924172}
+  - component: {fileID: 610546192596614164}
   - component: {fileID: 1270197079577714572}
   m_Layer: 0
   m_Name: Body
@@ -281,6 +288,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3150514072376069206}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &610546192596614164
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3150514072376069206}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1270197079577714572
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -340,9 +370,9 @@ GameObject:
   - component: {fileID: 1039991605981503030}
   - component: {fileID: 2732460493579207416}
   - component: {fileID: 203760821952123617}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,4 +431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea70167e02d38a8468ce49cdeb2bf298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  walkSpeed: 5
+  MainCamera: {fileID: 0}
+  walkSpeed: 10
+  sprintSpeed: 20
+  sprintTransit: 5
+  turningSpeed: 2
+  gravity: 9.01
+  jumpHeight: 2
