@@ -24,16 +24,13 @@ public class Player : MonoBehaviour
     private float turnInput;
 
     [Header("Health")]
-    [Tooltip("Starting and editable health value for the player")]
     [SerializeField] private float maxHealth = 100f;
-    [Tooltip("Current health (reflects changes at runtime)")]
     [SerializeField] private float currentHealth = 100f;
 
     [Header("Scene / Respawn")]
-    [Tooltip("If > 0, the scene will be reloaded after this delay when the player dies")]
     [SerializeField] private float respawnDelay = 0f;
 
-    
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider == null) return;
