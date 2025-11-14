@@ -14,10 +14,10 @@ public class GemCollector : MonoBehaviour
     {
         if (other.transform.tag == "Gem")
         {
+            Destroy(other.gameObject);
             Gem++;
             GemsText.text = "Gems: " + Gem.ToString();
             Debug.Log(Gem);
-            Destroy(other.gameObject);
         }
     }
 
