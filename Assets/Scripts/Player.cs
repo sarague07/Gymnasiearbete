@@ -30,11 +30,14 @@ public class Player : MonoBehaviour
     [Header("Scene / Respawn")]
     [SerializeField] private float respawnDelay = 0f;
 
+    private Vector3 initialSpawnPosition;
+    private Quaternion initialSpawnRotation;
+    private bool isDead;
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider == null) return;
-        
+
         if (hit.collider.CompareTag("Killplane"))
         {
             Die();
@@ -45,12 +48,18 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
 
+        initialSpawnPosition = transform.position;
+        initialSpawnRotation = transform.rotation;
+
+        RespawnManager.SetCheckpoint(initialSpawnPosition);
+
         if (currentHealth <= 0f)
             currentHealth = maxHealth;
     }
 
     private void Update()
     {
+        if (isDead) return;
         InputManagement();
         Movement();
     }
@@ -148,18 +157,39 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player died. Destroying GameObject.");
+        if (isDead) return;
+        isDead = true;
 
-        Destroy(gameObject);
+        Debug.Log("Player died. Starting respawn sequence.");
 
-        if (respawnDelay <= 0f)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        StartCoroutine(HandleRespawn(respawnDelay));
+    }
+
+    private IEnumerator HandleRespawn(float delay)
+    {
+        if (controller != null)
+            controller.enabled = false;
+        enabled = false;
+
+        if (delay > 0f)
+            yield return new WaitForSeconds(delay);
         else
-        {
-            StartCoroutine(ReloadSceneAfterDelay(respawnDelay));
-        }
+            yield return null;
+
+        RespawnManager.Respawn(gameObject, initialSpawnPosition);
+
+        currentHealth = maxHealth;
+        verticalVelocity = 0f;
+
+        transform.rotation = initialSpawnRotation;
+
+        if (controller != null)
+            controller.enabled = true;
+        enabled = true;
+
+        isDead = false;
+
+        Debug.Log("Player respawned.");
     }
 
     private IEnumerator ReloadSceneAfterDelay(float delay)

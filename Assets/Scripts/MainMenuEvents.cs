@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class MainMenuEvents : MonoBehaviour
 {
-
+    [Header("UiDocument and Buttons")]
     private UIDocument _document;
 
     private Button _startbutton;
@@ -14,7 +15,11 @@ public class MainMenuEvents : MonoBehaviour
 
     private List<Button> _menuButtons = new List<Button>();
 
+    [Header("Audio")]
     private AudioSource _audioSource;
+
+    [Header("Delay")]
+    [SerializeField] private float startDelay = 1f;
 
 
     private void Awake()
@@ -51,7 +56,15 @@ public class MainMenuEvents : MonoBehaviour
     private void OnPlayGameClick(ClickEvent evt)
     {
         Debug.Log("You pressed the Start Button");
-        SceneManager.LoadScene("Scene0");
+        StartCoroutine(LoadSceneAfterDelay("Scene0", startDelay));
+    }
+
+    private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
+    {
+        if (delay > 0f)
+            yield return new WaitForSeconds(delay);
+
+        SceneManager.LoadScene(sceneName);
     }
 
     private void OnAllButtonsClick(ClickEvent evt)

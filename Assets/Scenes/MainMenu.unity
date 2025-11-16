@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485c59265d283f64abf74ddad7d579a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuEvents
+  startDelay: 0.3
 --- !u!4 &1482858453
 Transform:
   m_ObjectHideFlags: 0

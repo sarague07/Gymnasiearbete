@@ -4,21 +4,47 @@ using UnityEngine;
 public class GemCollector : MonoBehaviour
 {
 
-    [Header("Resets Gem count in Canvas to 0")]
+    [Header("Resets Gem count to 0")]
     private int Gem = 0;
 
-    [Header("Refrences to Gem: text in Canvas")]
+    [Header("Gem: text in Canvas")]
     public TextMeshProUGUI GemsText;
 
-    private void OnTriggerEnter(Collider other)
+    [Header("Proximity collection")]
+    public float collectRadius = 2f;
+
+    [Header("Time Check")]
+    public float checkInterval = 0f;
+    private float checkTimer = 0f;
+
+    private void Update()
     {
-        if (other.transform.tag == "Gem")
+        if (checkInterval > 0f)
         {
-            Destroy(other.gameObject);
-            Gem++;
-            GemsText.text = "Gems: " + Gem.ToString();
-            Debug.Log(Gem);
+            checkTimer -= Time.deltaTime;
+            if (checkTimer > 0f) return;
+            checkTimer = checkInterval;
+        }
+
+        Collider[] hits = Physics.OverlapSphere(transform.position, collectRadius);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Collider other = hits[i];
+            if (other != null && other.CompareTag("Gem"))
+            {
+                Destroy(other.gameObject);
+                Gem++;
+                if (GemsText != null)
+                    GemsText.text = "Gems: " + Gem.ToString();
+                Debug.Log(Gem);
+            }
         }
     }
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(0f, 0.5f, 1f, 0.25f);
+        Gizmos.DrawSphere(transform.position, collectRadius);
+        Gizmos.color = new Color(0f, 0.8f, 1f, 1f);
+        Gizmos.DrawWireSphere(transform.position, collectRadius);
+    }
 }
