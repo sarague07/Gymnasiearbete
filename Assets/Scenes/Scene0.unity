@@ -653,7 +653,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 0ff36ee27086f894d8aef7238d0b53e0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9f88140ab9b6de347aa41925ffa2df31, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1755,10 +1755,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1499144813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -279, y: 176}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92.1, y: -55.7}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &651856102
 MonoBehaviour:
@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -37.415546, y: 0, z: -277.10233, w: 40.8876}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2303,7 +2303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0055bcb5ec5f5545a4769943324b910, type: 2}
+  - {fileID: 2100000, guid: ed2a857cd1655f143bac86db3b4e9788, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2614,7 +2614,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0055bcb5ec5f5545a4769943324b910, type: 2}
+  - {fileID: 2100000, guid: ed2a857cd1655f143bac86db3b4e9788, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2725,7 +2725,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0055bcb5ec5f5545a4769943324b910, type: 2}
+  - {fileID: 2100000, guid: ed2a857cd1655f143bac86db3b4e9788, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3197,7 +3197,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0055bcb5ec5f5545a4769943324b910, type: 2}
+  - {fileID: 2100000, guid: ed2a857cd1655f143bac86db3b4e9788, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3690,7 +3690,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0055bcb5ec5f5545a4769943324b910, type: 2}
+  - {fileID: 2100000, guid: ed2a857cd1655f143bac86db3b4e9788, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3743,7 +3743,7 @@ PrefabInstance:
       objectReference: {fileID: 164450192}
     - target: {fileID: 203760821952123617, guid: 20580b4db799e124b8d58ae96e8cadd1, type: 3}
       propertyPath: sprintSpeed
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 203760821952123617, guid: 20580b4db799e124b8d58ae96e8cadd1, type: 3}
       propertyPath: currentHealth
