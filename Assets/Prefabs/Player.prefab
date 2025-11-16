@@ -277,7 +277,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5528987880636642747}
   m_Father: {fileID: 1039991605981503030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2599443832489924172
@@ -369,6 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1039991605981503030}
   - component: {fileID: 2732460493579207416}
+  - component: {fileID: 264139848691994633}
   - component: {fileID: 203760821952123617}
   m_Layer: 3
   m_Name: Player
@@ -419,6 +421,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &264139848691994633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5520647071588810693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504703f1a5f4bd146a4bdd7b9d5a3bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GemCollector
+  GemsText: {fileID: 0}
+  collectRadius: 2
+  checkInterval: 0
 --- !u!114 &203760821952123617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,9 +449,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   MainCamera: {fileID: 0}
-  walkSpeed: 10
-  sprintSpeed: 20
+  walkSpeed: 8
+  sprintSpeed: 15
   sprintTransit: 5
   turningSpeed: 2
   gravity: 9.01
   jumpHeight: 2
+  maxHealth: 100
+  currentHealth: 100
+  respawnDelay: 0
+--- !u!1 &7753572034517889613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5528987880636642747}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5528987880636642747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753572034517889613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.099, y: 0.502, z: 0.787}
+  m_LocalScale: {x: 0.21276, y: 0.22894907, z: 0.10780626}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5957508253716339871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

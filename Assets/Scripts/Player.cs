@@ -55,11 +55,16 @@ public class Player : MonoBehaviour
 
         if (currentHealth <= 0f)
             currentHealth = maxHealth;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
     {
         if (isDead) return;
+
+        CheckEscapeKey();
         InputManagement();
         Movement();
     }
@@ -127,6 +132,19 @@ public class Player : MonoBehaviour
     {
         moveInput = Input.GetAxis("Vertical");
         turnInput = Input.GetAxis("Horizontal");
+    }
+    private void CheckEscapeKey()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Screen.fullScreen)
+                Screen.fullScreen = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            Debug.Log("Escape pressed: exited full screen and locked cursor.");
+        }
     }
 
     public void TakeDamage(float amount)
