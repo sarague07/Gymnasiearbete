@@ -1,14 +1,14 @@
 using TMPro;
 using UnityEngine;
 
-public class GemCollector : MonoBehaviour
+public class CapsuleCollector : MonoBehaviour
 {
 
-    [Header("Resets Gem count to 0")]
-    private int Gem = 0;
+    [Header("Resets Capsules count to 0")]
+    private int Capsules = 0;
 
-    [Header("Gem: text in Canvas")]
-    public TextMeshProUGUI GemsText;
+    [Header("Capsules: text in Canvas")]
+    public TextMeshProUGUI CapsulesText;
 
     [Header("Proximity collection")]
     public float collectRadius = 2f;
@@ -30,13 +30,13 @@ public class GemCollector : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             Collider other = hits[i];
-            if (other != null && other.CompareTag("Gem"))
+            if (other != null && other.CompareTag("Capsules"))
             {
                 Destroy(other.gameObject);
-                Gem++;
-                if (GemsText != null)
-                    GemsText.text = "Gems: " + Gem.ToString();
-                Debug.Log(Gem);
+                Capsules++;
+                if (CapsulesText != null)
+                    CapsulesText.text = "Capsules: " + Capsules.ToString();
+                Debug.Log(Capsules);
             }
         }
     }
