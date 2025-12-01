@@ -4526,6 +4526,10 @@ PrefabInstance:
       propertyPath: CapsulesText
       value: 
       objectReference: {fileID: 651856102}
+    - target: {fileID: 264139848691994633, guid: 20580b4db799e124b8d58ae96e8cadd1, type: 3}
+      propertyPath: collectRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1039991605981503030, guid: 20580b4db799e124b8d58ae96e8cadd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.91

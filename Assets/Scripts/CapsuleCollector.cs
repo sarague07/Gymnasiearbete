@@ -11,7 +11,7 @@ public class CapsuleCollector : MonoBehaviour
     public TextMeshProUGUI CapsulesText;
 
     [Header("Proximity collection")]
-    public float collectRadius = 2f;
+    public float collectRadius = 1f;
 
     [Header("Time Check")]
     public float checkInterval = 0f;
