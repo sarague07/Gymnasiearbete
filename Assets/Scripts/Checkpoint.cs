@@ -10,6 +10,9 @@ public class Checkpoint : MonoBehaviour
 
     private bool activated;
 
+    private static Vector3 lastActivatedPosition = Vector3.zero;
+    private static bool hasActivatedCheckpoint = false;
+
     private void Update()
     {
         if (activated) return;
@@ -68,6 +71,9 @@ public class Checkpoint : MonoBehaviour
 
         RespawnManager.SetCheckpoint(transform.position);
 
+        lastActivatedPosition = transform.position;
+        hasActivatedCheckpoint = true;
+
         var sr = GetComponent<SpriteRenderer>();
         if (sr != null)
             sr.color = activatedColor;
@@ -86,7 +92,19 @@ public class Checkpoint : MonoBehaviour
             Gizmos.DrawLine(transform.position, playerTransform.position);
         }
     }
+
+    public static bool TryGetLastCheckpointPosition(out Vector3 position)
+    {
+        if (hasActivatedCheckpoint)
+        {
+            position = lastActivatedPosition;
+            return true;
+        }
+        position = Vector3.zero;
+        return false;
+    }
 }
+
 public static class RespawnManager
 {
     private static Vector3 lastCheckpoint = Vector3.zero;
@@ -108,5 +126,16 @@ public static class RespawnManager
         if (player == null) return;
         var respawnPos = GetRespawnPosition(fallbackPosition);
         player.transform.position = respawnPos;
+    }
+
+    public static bool TryGetLastCheckpoint(out Vector3 position)
+    {
+        if (hasCheckpoint)
+        {
+            position = lastCheckpoint;
+            return true;
+        }
+        position = Vector3.zero;
+        return false;
     }
 }

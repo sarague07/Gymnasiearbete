@@ -7,8 +7,9 @@ public class Player : MonoBehaviour
     [Header("Refrences")]
     private CharacterController controller;
     [SerializeField] private Transform MainCamera;
+    private AudioSource backgroundMusic;
 
-    [Header("Movement Settings")]
+    [Header("Movement")]
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float sprintTransit = 5f;
@@ -27,12 +28,18 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth = 100f;
 
+    public float CurrentHealth { get { return currentHealth; } }
+    public float MaxHealth { get { return maxHealth; } }
+
     [Header("Scene / Respawn")]
     [SerializeField] private float respawnDelay = 0f;
 
     private Vector3 initialSpawnPosition;
     private Quaternion initialSpawnRotation;
     private bool isDead;
+
+    public Vector3 InitialSpawnPosition => initialSpawnPosition;
+    public Quaternion InitialSpawnRotation => initialSpawnRotation;
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -58,6 +65,15 @@ public class Player : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (MainCamera == null && Camera.main != null)
+            MainCamera = Camera.main.transform;
+
+        if (MainCamera != null)
+            backgroundMusic = MainCamera.GetComponent<AudioSource>();
+
+        if (backgroundMusic == null)
+            Debug.LogWarning("Player: No AudioSource found on MainCamera. Background music toggle will be unavailable.");
     }
 
     private void Update()
@@ -65,6 +81,7 @@ public class Player : MonoBehaviour
         if (isDead) return;
 
         CheckEscapeKey();
+        CheckMusicToggle();
         InputManagement();
         Movement();
     }
@@ -133,6 +150,7 @@ public class Player : MonoBehaviour
         moveInput = Input.GetAxis("Vertical");
         turnInput = Input.GetAxis("Horizontal");
     }
+
     private void CheckEscapeKey()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -145,6 +163,24 @@ public class Player : MonoBehaviour
 
             Debug.Log("Escape pressed: exited full screen and locked cursor.");
         }
+    }
+
+    private void CheckMusicToggle()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+            ToggleBackgroundMusic();
+    }
+
+    private void ToggleBackgroundMusic()
+    {
+        if (backgroundMusic == null)
+        {
+            Debug.LogWarning("ToggleBackgroundMusic: No AudioSource assigned on MainCamera.");
+            return;
+        }
+
+        backgroundMusic.enabled = !backgroundMusic.enabled;
+        Debug.Log($"Background music {(backgroundMusic.enabled ? "enabled" : "disabled")}.");
     }
 
     public void TakeDamage(float amount)
@@ -214,5 +250,32 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void RespawnToInitial()
+    {
+        StartCoroutine(RespawnToInitialRoutine());
+    }
+
+    private IEnumerator RespawnToInitialRoutine()
+    {
+        if (controller == null)
+            controller = GetComponent<CharacterController>();
+
+        if (controller != null)
+            controller.enabled = false;
+
+        transform.position = initialSpawnPosition;
+        transform.rotation = initialSpawnRotation;
+        currentHealth = maxHealth;
+        verticalVelocity = 0f;
+        isDead = false;
+
+        yield return null;
+
+        if (controller != null)
+            controller.enabled = true;
+
+        Debug.Log("Player respawned to initial start position via RespawnToInitial.");
     }
 }

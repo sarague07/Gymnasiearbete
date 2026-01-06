@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Gem
   - Capsules
+  - BluePill
+  - Redpill
   layers:
   - Default
   - TransparentFX
@@ -17,11 +19,11 @@ TagManager:
   - UI
   - Killplane
   - Enemy
-  - Capsules
-  - 
-  - 
-  - 
-  - 
+  - Damage
+  - RedPill
+  - BluePill
+  - Heal
+  - MovingPlatform
   - 
   - 
   - 
