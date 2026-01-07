@@ -56,7 +56,7 @@ public class MainMenuEvents : MonoBehaviour
     private void OnPlayGameClick(ClickEvent evt)
     {
         Debug.Log("You pressed the Start Button");
-        StartCoroutine(LoadSceneAfterDelay("Scene0", startDelay));
+        StartCoroutine(LoadSceneAfterDelay("Level0", startDelay));
     }
 
     private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)

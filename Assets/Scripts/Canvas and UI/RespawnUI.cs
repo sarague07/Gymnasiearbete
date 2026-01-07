@@ -10,7 +10,7 @@ public class RespawnUI : MonoBehaviour
     [SerializeField] private Button startButton;
     [SerializeField] private Button mainMenuButton;
 
-    [Header("Scene Names")]
+    [Header("Scenes")]
     [SerializeField] private string mainMenuScene = "MainMenu";
 
     private Player player;
@@ -71,15 +71,10 @@ public class RespawnUI : MonoBehaviour
 
     private void OnLastCheckpointPressed()
     {
-        if (player == null)
-        {
-            Debug.LogWarning("RespawnUI: Cannot respawn - player reference missing.");
-            return;
-        }
+       
 
         if (Checkpoint.TryGetLastCheckpointPosition(out Vector3 checkpointPos))
         {
-            Debug.Log($"RespawnUI: Teleporting player to checkpoint at {checkpointPos}");
 
             var controller = player.GetComponent<CharacterController>();
             if (controller != null)
@@ -100,10 +95,6 @@ public class RespawnUI : MonoBehaviour
 
     private void OnStartPressed()
     {
-        if (player == null)
-        {
-            return;
-        }
 
         player.RespawnToInitial();
 
@@ -114,11 +105,6 @@ public class RespawnUI : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        if (string.IsNullOrEmpty(mainMenuScene))
-        {
-            return;
-        }
 
         SceneManager.LoadScene(mainMenuScene);
     }

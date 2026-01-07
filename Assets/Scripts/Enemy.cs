@@ -9,20 +9,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float stopDistance = 1.5f;
 
     [Header("Damage")]
-    [Tooltip("Amount of damage dealt to the player on collision / melee")]
     [SerializeField] private float damage = 10f;
-    [Tooltip("Destroy the enemy after dealing damage")]
     [SerializeField] private bool destroyOnHit = false;
 
     [Header("Attack")]
-    [Tooltip("Distance at which the enemy will apply damage if close enough")]
     [SerializeField] private float attackRange = 1.2f;
-    [Tooltip("Minimum time between consecutive attacks (seconds)")]
     [SerializeField] private float attackCooldown = 1f;
 
     private Transform _player;
     private Rigidbody _rb;
     private float _lastAttackTime = -999f;
+
+    public AudioSource _audioSource;
 
     private void Start()
     {
@@ -31,12 +29,6 @@ public class Enemy : MonoBehaviour
         if (playerObj == null)
         {
             try { playerObj = GameObject.FindWithTag("Player"); } catch { }
-        }
-
-        if (playerObj == null)
-        {
-            Debug.LogWarning("Enemy: no GameObject found with tag 'player' or 'Player'. Chasing disabled.");
-            return;
         }
 
         _player = playerObj.transform;
@@ -180,7 +172,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(1f, 0.2f, 0.2f, 0.3f);

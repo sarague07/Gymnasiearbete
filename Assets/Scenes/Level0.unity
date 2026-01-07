@@ -131,10 +131,9 @@ GameObject:
   - component: {fileID: 14940040}
   - component: {fileID: 14940039}
   - component: {fileID: 14940038}
-  - component: {fileID: 14940037}
   - component: {fileID: 14940036}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: BlueCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 2033113379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &14940036
 Rigidbody:
@@ -182,27 +181,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &14940037
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14940034}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!136 &14940038
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -294,10 +272,9 @@ GameObject:
   - component: {fileID: 30891627}
   - component: {fileID: 30891626}
   - component: {fileID: 30891625}
-  - component: {fileID: 30891629}
   - component: {fileID: 30891628}
   m_Layer: 11
-  m_Name: Capsule
+  m_Name: RedCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +293,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 581573815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &30891625
 CapsuleCollider:
@@ -424,27 +401,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &30891629
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30891623}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!4 &55016028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4721491774864964999, guid: c4ff207443b63644f88fbf455da72daf, type: 3}
@@ -623,6 +579,7 @@ Transform:
   - {fileID: 1224214363}
   - {fileID: 140589739}
   - {fileID: 783131317}
+  - {fileID: 1191056104}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109989378
@@ -733,18 +690,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 373315129}
-  - {fileID: 803037024}
-  - {fileID: 1189416888}
-  - {fileID: 251583514}
-  - {fileID: 895584437}
-  - {fileID: 240972206}
-  - {fileID: 215515505}
-  - {fileID: 30891624}
-  - {fileID: 1352012244}
-  - {fileID: 201794995}
-  - {fileID: 389323485}
-  - {fileID: 14940035}
+  - {fileID: 2033113379}
+  - {fileID: 581573815}
   m_Father: {fileID: 96661081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140589738
@@ -1062,10 +1009,9 @@ GameObject:
   - component: {fileID: 201795000}
   - component: {fileID: 201794999}
   - component: {fileID: 201794998}
-  - component: {fileID: 201794997}
   - component: {fileID: 201794996}
   m_Layer: 11
-  m_Name: Capsule
+  m_Name: RedCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,7 +1030,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 581573815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &201794996
 Rigidbody:
@@ -1113,27 +1059,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &201794997
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201794994}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!136 &201794998
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1301,10 +1226,9 @@ GameObject:
   - component: {fileID: 215515508}
   - component: {fileID: 215515507}
   - component: {fileID: 215515506}
-  - component: {fileID: 215515510}
   - component: {fileID: 215515509}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: BlueCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1247,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 2033113379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &215515506
 CapsuleCollider:
@@ -1431,27 +1355,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &215515510
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215515504}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &222386475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,10 +1500,9 @@ GameObject:
   - component: {fileID: 240972209}
   - component: {fileID: 240972208}
   - component: {fileID: 240972207}
-  - component: {fileID: 240972211}
   - component: {fileID: 240972210}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: BlueCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1619,7 +1521,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 2033113379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &240972207
 CapsuleCollider:
@@ -1727,27 +1629,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &240972211
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240972205}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &251583513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,10 +1641,9 @@ GameObject:
   - component: {fileID: 251583517}
   - component: {fileID: 251583516}
   - component: {fileID: 251583515}
-  - component: {fileID: 251583519}
   - component: {fileID: 251583518}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: BlueCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1782,7 +1662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 2033113379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &251583515
 CapsuleCollider:
@@ -1890,27 +1770,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &251583519
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251583513}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &269442738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,10 +1861,9 @@ GameObject:
   - component: {fileID: 373315132}
   - component: {fileID: 373315131}
   - component: {fileID: 373315130}
-  - component: {fileID: 373315134}
   - component: {fileID: 373315133}
   m_Layer: 11
-  m_Name: Capsule
+  m_Name: RedCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2024,7 +1882,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 581573815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &373315130
 CapsuleCollider:
@@ -2132,27 +1990,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &373315134
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373315128}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &388995008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,10 +2119,9 @@ GameObject:
   - component: {fileID: 389323490}
   - component: {fileID: 389323489}
   - component: {fileID: 389323488}
-  - component: {fileID: 389323487}
   - component: {fileID: 389323486}
   m_Layer: 11
-  m_Name: Capsule
+  m_Name: RedCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2304,7 +2140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 581573815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &389323486
 Rigidbody:
@@ -2333,27 +2169,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &389323487
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389323484}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!136 &389323488
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2941,6 +2756,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5425689526654125790, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 977445847}
+    - target: {fileID: 5425689526654125790, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
       propertyPath: destroyOnHit
       value: 0
       objectReference: {fileID: 0}
@@ -2957,6 +2776,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
+--- !u!1 &581573814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581573815}
+  m_Layer: 8
+  m_Name: RedCapsules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581573815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581573814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 389323485}
+  - {fileID: 201794995}
+  - {fileID: 1352012244}
+  - {fileID: 30891624}
+  - {fileID: 895584437}
+  - {fileID: 1189416888}
+  - {fileID: 373315129}
+  m_Father: {fileID: 125279789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &626677817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3005,6 +2862,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5425689526654125790, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 977445847}
     - target: {fileID: 5934980069020386366, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -3337,10 +3198,9 @@ GameObject:
   - component: {fileID: 803037027}
   - component: {fileID: 803037026}
   - component: {fileID: 803037025}
-  - component: {fileID: 803037029}
   - component: {fileID: 803037028}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: BlueCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3359,7 +3219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 2033113379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &803037025
 CapsuleCollider:
@@ -3467,27 +3327,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &803037029
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803037023}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &814584447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,10 +3450,9 @@ GameObject:
   - component: {fileID: 895584440}
   - component: {fileID: 895584439}
   - component: {fileID: 895584438}
-  - component: {fileID: 895584442}
   - component: {fileID: 895584441}
   m_Layer: 11
-  m_Name: Capsule
+  m_Name: RedCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3633,7 +3471,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 581573815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &895584438
 CapsuleCollider:
@@ -3741,27 +3579,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &895584442
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895584436}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &927081204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3873,6 +3690,135 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927081204}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &977445845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 977445846}
+  - component: {fileID: 977445847}
+  m_Layer: 0
+  m_Name: EnemyDeath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &977445846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977445845}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1191056104}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &977445847
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977445845}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0fe1aad7772a1fc4ca546d3915957c16, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1096108075
 GameObject:
   m_ObjectHideFlags: 0
@@ -4144,10 +4090,9 @@ GameObject:
   - component: {fileID: 1189416891}
   - component: {fileID: 1189416890}
   - component: {fileID: 1189416889}
-  - component: {fileID: 1189416893}
   - component: {fileID: 1189416892}
   m_Layer: 11
-  m_Name: Capsule
+  m_Name: RedCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4166,7 +4111,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 581573815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1189416889
 CapsuleCollider:
@@ -4274,32 +4219,43 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1189416893
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189416887}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!4 &1189942603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2724415889109302191, guid: f69eb9de72c05cb4eaa344d3e6c47a28, type: 3}
   m_PrefabInstance: {fileID: 6493823455577246803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1191056103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191056104}
+  m_Layer: 0
+  m_Name: Audiosource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1191056104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191056103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -36.06384, y: 0.82676, z: -16.80571}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 977445846}
+  m_Father: {fileID: 96661081}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1224214362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,10 +5206,9 @@ GameObject:
   - component: {fileID: 1352012249}
   - component: {fileID: 1352012248}
   - component: {fileID: 1352012247}
-  - component: {fileID: 1352012246}
   - component: {fileID: 1352012245}
   m_Layer: 11
-  m_Name: Capsule
+  m_Name: RedCapsule
   m_TagString: Capsules
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5272,7 +5227,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.29013976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125279789}
+  m_Father: {fileID: 581573815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1352012245
 Rigidbody:
@@ -5301,27 +5256,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1352012246
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352012243}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!136 &1352012247
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7264,14 +7198,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5425689526654125790, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 977445847}
     - target: {fileID: 5934980069020386366, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
       propertyPath: m_Name
       value: 'Enemy '
       objectReference: {fileID: 0}
-    - target: {fileID: 7076369840366512463, guid: f66dc9cfd276eac4eac8fde956021ca1, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 608f1299bfe6bf94c9ce0acfed3927a8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7515,6 +7449,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863409838}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2033113378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033113379}
+  m_Layer: 8
+  m_Name: BlueCapsules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2033113379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033113378}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 14940035}
+  - {fileID: 215515505}
+  - {fileID: 240972206}
+  - {fileID: 251583514}
+  - {fileID: 803037024}
+  m_Father: {fileID: 125279789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042392048
 GameObject:
   m_ObjectHideFlags: 0
