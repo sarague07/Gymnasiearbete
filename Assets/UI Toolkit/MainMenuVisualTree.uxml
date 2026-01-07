@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=d096fb705d00a124b9b0191f2578c6da&amp;type=3#MainMenuStyle" />
-    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Imported%20stuff/Background/Background0.jpg?fileID=2800000&amp;guid=ff5e0e5844e39864ca8907840b4e995b&amp;type=3#Background0&quot;); display: flex;">
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Imported%20stuff/Background/background3.jpg?fileID=2800000&amp;guid=8b95f8040ab0eb2408001754e89ebd59&amp;type=3#background3&quot;); display: flex;">
         <ui:Label text="Capsule Matrix" name="Header0" class="Header header" />
         <ui:Button text="Start" name="StartButton" class="button" />
         <ui:Button text="Quit" name="QuitButton" class="button" />
