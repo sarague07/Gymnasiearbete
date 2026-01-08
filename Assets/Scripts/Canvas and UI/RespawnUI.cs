@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 public class RespawnUI : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject respawnCanvas; 
-    [SerializeField] private Button lastCheckpointButton;
+    [SerializeField] private GameObject respawnCanvas;
     [SerializeField] private Button startButton;
     [SerializeField] private Button mainMenuButton;
+    [SerializeField] private Button ButtonButton;
 
     [Header("Scenes")]
     [SerializeField] private string mainMenuScene = "MainMenu";
 
     private Player player;
+    private Vector3 playerInitialPosition;
+    private Quaternion playerInitialRotation; 
 
     private void Awake()
     {
@@ -26,20 +28,20 @@ public class RespawnUI : MonoBehaviour
 
     private void Start()
     {
-        
         player = Object.FindFirstObjectByType<Player>();
-        if (player == null)
 
-        if (lastCheckpointButton != null)
-            lastCheckpointButton.onClick.AddListener(OnLastCheckpointPressed);
-     
+        playerInitialPosition = player.transform.position;
+        playerInitialRotation = player.transform.rotation;
+
         if (startButton != null)
             startButton.onClick.AddListener(OnStartPressed);
-     
 
         if (mainMenuButton != null)
             mainMenuButton.onClick.AddListener(OnMainMenuPressed);
-    
+
+        if (ButtonButton != null)
+            ButtonButton.onClick.AddListener(OnButtonButtonPressed);
+
     }
 
     private void Update()
@@ -69,39 +71,25 @@ public class RespawnUI : MonoBehaviour
         }
     }
 
-    private void OnLastCheckpointPressed()
-    {
-       
-
-        if (Checkpoint.TryGetLastCheckpointPosition(out Vector3 checkpointPos))
-        {
-
-            var controller = player.GetComponent<CharacterController>();
-            if (controller != null)
-                controller.enabled = false;
-
-            player.transform.position = checkpointPos;
-
-            if (controller != null)
-                controller.enabled = true;
-        }
-        else
-        {
-            player.RespawnToInitial();
-        }
-
-        CloseUI();
-    }
-
     private void OnStartPressed()
     {
-
-        player.RespawnToInitial();
+        if (player != null)
+        {
+            TeleportPlayerToInitialPosition();
+        }
 
         CloseUI();
     }
 
     private void OnMainMenuPressed()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        SceneManager.LoadScene(mainMenuScene);
+    }
+
+    private void OnButtonButtonPressed()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -115,5 +103,31 @@ public class RespawnUI : MonoBehaviour
         respawnCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void TeleportPlayerToInitialPosition()
+    {
+        if (player == null) return;
+
+        player.transform.position = playerInitialPosition;
+        player.transform.rotation = playerInitialRotation;
+
+        Rigidbody rb = player.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        CharacterController controller = player.GetComponent<CharacterController>();
+        if (controller != null)
+        {
+            controller.enabled = false;
+            player.transform.position = playerInitialPosition;
+            player.transform.rotation = playerInitialRotation;
+            controller.enabled = true;
+        }
+
+        Debug.Log("Player teleported to initial position: " + playerInitialPosition);
     }
 }

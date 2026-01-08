@@ -3,8 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class PillsInteraction : MonoBehaviour
 {
-    public LayerMask redPillLayer;
-    public LayerMask bluePillLayer;
+    public LayerMask RedPillLayer;
+    public LayerMask BluePillLayer;
+    public LayerMask VoidPillLayer;
+    public LayerMask RememberPillLayer;
 
     private const string CapsulesKey = "CapsulesCount";
 
@@ -24,7 +26,7 @@ public class PillsInteraction : MonoBehaviour
 
         int otherLayer = other.layer;
 
-        if ((redPillLayer.value & (1 << otherLayer)) != 0)
+        if ((RedPillLayer.value & (1 << otherLayer)) != 0)
         {
             var collector = Object.FindAnyObjectByType<CapsuleCollector>();
             if (collector != null)
@@ -32,16 +34,35 @@ public class PillsInteraction : MonoBehaviour
                 collector.SaveCapsuleCount();
             }
 
-            SceneManager.LoadScene("Scene1");
+            SceneManager.LoadScene("Level1");
             return;
         }
 
-        if ((bluePillLayer.value & (1 << otherLayer)) != 0)
+        if ((BluePillLayer.value & (1 << otherLayer)) != 0)
         {
             PlayerPrefs.SetInt(CapsulesKey, 0);
             PlayerPrefs.Save();
 
-            SceneManager.LoadScene("Scene0");
+            SceneManager.LoadScene("Level2");
+            return;
+        }
+
+
+        if ((VoidPillLayer.value & (1 << otherLayer)) != 0)
+        {
+            PlayerPrefs.SetInt(CapsulesKey, 0);
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene("Level3");
+            return;
+        }
+
+        if ((RememberPillLayer.value & (1 << otherLayer)) != 0)
+        {
+            PlayerPrefs.SetInt(CapsulesKey, 0);
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene("Level4");
             return;
         }
     }

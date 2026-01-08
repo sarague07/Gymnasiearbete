@@ -3,24 +3,21 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     [Header("Path")]
-    [Tooltip("If enabled you can assign two transforms directly instead of an array.")]
+
     public bool useTwoPoints = false;
-    [Tooltip("First point when using two-point mode.")]
+
     public Transform pointA;
-    [Tooltip("Second point when using two-point mode.")]
+
     public Transform pointB;
 
-    [Tooltip("Transforms used as waypoints. If empty the platform will not move.")]
     public Transform[] waypoints;
 
     [Header("Movement")]
-    [Tooltip("Speed in units per second.")]
+
     public float speed = 2f;
 
-    [Tooltip("Time in seconds to wait on each waypoint.")]
     public float waitTime = 0f;
 
-    [Tooltip("If true the platform will ping-pong between endpoints. If false it will loop.")]
     public bool pingPong = true;
 
     int currentIndex = 0;
@@ -49,10 +46,6 @@ public class MovingPlatform : MonoBehaviour
         box3D = GetComponent<BoxCollider>();
         box2D = GetComponent<BoxCollider2D>();
 
-        if (box3D == null && box2D == null)
-        {
-            Debug.LogWarning("MovingPlatform: No BoxCollider or BoxCollider2D found. Parenting via triggers will not work. Consider adding a BoxCollider and enabling 'Is Trigger'.");
-        }
     }
 
     void FixedUpdate()
