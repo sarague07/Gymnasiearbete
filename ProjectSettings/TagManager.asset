@@ -12,6 +12,7 @@ TagManager:
   - Redpill
   - VoidPill
   - RememberPill
+  - Timer
   layers:
   - Default
   - TransparentFX
