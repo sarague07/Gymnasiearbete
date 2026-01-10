@@ -23,7 +23,7 @@ public class Killplane : MonoBehaviour
             return;
         }
 
-        if (obj.CompareTag("Player") || obj.CompareTag("player"))
+        if (obj.CompareTag("Player"))
         {
             Destroy(obj);
         }

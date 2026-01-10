@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class CapsuleCollector : MonoBehaviour
 {
-
     [Header("Resets Capsules count to 0")]
     private int Capsules = 0;
 
@@ -19,26 +18,29 @@ public class CapsuleCollector : MonoBehaviour
     private float checkTimer = 0f;
 
     [Header("Capsule Effects")]
-    [Tooltip("Amount of health given when collecting a Heal-layer capsule")]
     [SerializeField] private float healAmount = 10f;
-    [Tooltip("Amount of damage applied when collecting a Damage-layer capsule")]
     [SerializeField] private float damageAmount = 10f;
 
     private const string CapsulesKey = "CapsulesCount";
 
+    private static bool hasLoadedFromSave = false;
+
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Scene1")
-        {
-            Capsules = PlayerPrefs.GetInt(CapsulesKey, 0);
-        }
-        else
+        if (SceneManager.GetActiveScene().name == "Level0")
         {
             Capsules = 0;
+            hasLoadedFromSave = false;
+            PlayerPrefs.SetInt(CapsulesKey, 0);
+            PlayerPrefs.Save();
+        }
+        else if (!hasLoadedFromSave)
+        {
+            Capsules = PlayerPrefs.GetInt(CapsulesKey, 0);
+            hasLoadedFromSave = true;
         }
 
-        if (CapsulesText != null)
-            CapsulesText.text = "Capsules: " + Capsules.ToString();
+        UpdateCapsulesText();
     }
 
     private void Update()
@@ -66,8 +68,7 @@ public class CapsuleCollector : MonoBehaviour
             Destroy(other.gameObject);
             Capsules++;
 
-            if (CapsulesText != null)
-                CapsulesText.text = "Capsules: " + Capsules.ToString();
+            UpdateCapsulesText();
             Debug.Log(Capsules);
 
             if (objLayer == healLayer)
@@ -81,10 +82,22 @@ public class CapsuleCollector : MonoBehaviour
         }
     }
 
+    private void UpdateCapsulesText()
+    {
+        if (CapsulesText != null)
+            CapsulesText.text = "Capsules: " + Capsules.ToString();
+    }
+
     public void SaveCapsuleCount()
     {
         PlayerPrefs.SetInt(CapsulesKey, Capsules);
         PlayerPrefs.Save();
+    }
+
+    public void PrepareForSceneChange()
+    {
+        SaveCapsuleCount();
+        hasLoadedFromSave = false;
     }
 
     private void ApplyToPlayer(float amount, bool isHeal)

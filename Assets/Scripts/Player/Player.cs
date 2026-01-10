@@ -214,8 +214,6 @@ public class Player : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
-        Debug.Log("Player died. Starting respawn sequence.");
-
         StartCoroutine(HandleRespawn(respawnDelay));
     }
 
@@ -243,7 +241,6 @@ public class Player : MonoBehaviour
 
         isDead = false;
 
-        Debug.Log("Player respawned.");
     }
 
     private IEnumerator ReloadSceneAfterDelay(float delay)
@@ -276,6 +273,5 @@ public class Player : MonoBehaviour
         if (controller != null)
             controller.enabled = true;
 
-        Debug.Log("Player respawned to initial start position via RespawnToInitial.");
     }
 }

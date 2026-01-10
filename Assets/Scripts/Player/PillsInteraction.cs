@@ -8,8 +8,6 @@ public class PillsInteraction : MonoBehaviour
     public LayerMask VoidPillLayer;
     public LayerMask RememberPillLayer;
 
-    private const string CapsulesKey = "CapsulesCount";
-
     private void OnTriggerEnter(Collider other)
     {
         HandlePillCollision(other.gameObject);
@@ -26,42 +24,38 @@ public class PillsInteraction : MonoBehaviour
 
         int otherLayer = other.layer;
 
+        var collector = Object.FindAnyObjectByType<CapsuleCollector>();
+        if (collector != null)
+        {
+            collector.PrepareForSceneChange();
+        }
+
+        var timerManager = TimerManager.Instance;
+        if (timerManager != null)
+        {
+            timerManager.SaveTimeBeforeSceneChange();
+        }
+
         if ((RedPillLayer.value & (1 << otherLayer)) != 0)
         {
-            var collector = Object.FindAnyObjectByType<CapsuleCollector>();
-            if (collector != null)
-            {
-                collector.SaveCapsuleCount();
-            }
-
             SceneManager.LoadScene("Level1");
             return;
         }
 
         if ((BluePillLayer.value & (1 << otherLayer)) != 0)
         {
-            PlayerPrefs.SetInt(CapsulesKey, 0);
-            PlayerPrefs.Save();
-
             SceneManager.LoadScene("Level2");
             return;
         }
 
-
         if ((VoidPillLayer.value & (1 << otherLayer)) != 0)
         {
-            PlayerPrefs.SetInt(CapsulesKey, 0);
-            PlayerPrefs.Save();
-
             SceneManager.LoadScene("Level3");
             return;
         }
 
         if ((RememberPillLayer.value & (1 << otherLayer)) != 0)
         {
-            PlayerPrefs.SetInt(CapsulesKey, 0);
-            PlayerPrefs.Save();
-
             SceneManager.LoadScene("Level4");
             return;
         }

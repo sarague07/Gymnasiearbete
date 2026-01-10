@@ -16,8 +16,6 @@ public class Heallthbar : MonoBehaviour
         if (player == null)
         {
             player = Object.FindAnyObjectByType<Player>();
-            if (player == null)
-                Debug.LogWarning("Heallthbar: No Player found in scene. Assign the Player reference.");
         }
 
         if (healthRect == null)
@@ -25,9 +23,6 @@ public class Heallthbar : MonoBehaviour
             var t = transform.Find("Health");
             if (t != null)
                 healthRect = t.GetComponent<RectTransform>();
-
-            if (healthRect == null)
-                Debug.LogWarning("Heallthbar: No RectTransform assigned and no child named 'Health' was found.");
         }
 
         if (healthImage == null && healthRect != null)
