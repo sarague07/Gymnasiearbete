@@ -1872,7 +1872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &388995009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5162,8 +5162,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Welcome! Your mission is to phase the void! collect as many capsules as
-    possible and get to the end of the level by facing multiple obstacles. \n"
+  m_text: 'Welcome! You are trying to escape reality, your mission is to collect
+    capsules and face the enemies and obstacles.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96c7951f816533a42bf9a35eeffd7e2f, type: 2}
   m_sharedMaterial: {fileID: -4289710938600661359, guid: 96c7951f816533a42bf9a35eeffd7e2f, type: 2}
